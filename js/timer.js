@@ -16,7 +16,6 @@ const title = document.title;
 
 export const startTimer = () => {  
     const countDown = new Date().getTime() + state.timeLeft * 1000;
-    console.log('countDown: ', countDown);
     
     state.timerId = setInterval(() => {
         state.timeLeft -= 1;
@@ -27,7 +26,6 @@ export const startTimer = () => {
         if(!(state.timeLeft % 5)) {
             const now = new Date().getTime();
             state.timeLeft = Math.floor((countDown - now ) / 1000);
-            console.log('синхронизация времени');
         }
 
         if (state.timeLeft > 0 && state.isActive) {
